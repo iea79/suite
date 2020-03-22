@@ -1,0 +1,8 @@
+nav.header__nav
+    ul.navbar
+        each navLink, i in [{name: 'Главная', href: ''},{name: 'Статус платежа', href: ''},{name: 'Ответы на вопросы', href: ''},{name: 'Поддержка', href: ''},{name: 'Контакты', href: ''},]
+            li.navbar__item
+                if i == 0
+                    a.navbar__link.active(href= navLink.href)= navLink.name
+                else
+                    a.navbar__link(href= navLink.href)= navLink.name

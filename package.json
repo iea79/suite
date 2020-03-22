@@ -1,0 +1,10 @@
+{
+  "name": "prepros-project",
+  "version": "1.0.0",
+  "description": "This is a dummy package.json file created by Prepros to manage packages with NPM. You can edit this file to add your own information.",
+  "dependencies": {
+    "inputmask": "^5.0.3",
+    "jquery-circle-progress": "^1.2.2",
+    "tooltipster": "^4.2.7"
+  }
+}

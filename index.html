@@ -5,37 +5,385 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css?0.1"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css?0.9"/>
   </head>
   <body>
     <header class="header">
       <div class="header__content">
-        <div class="header__left"><a class="logo" href="/"><img src="img/logo.png" alt="alt"/></a></div>
-        <nav class="header__right">
+        <nav class="header__nav">
           <ul class="navbar">
-            <li class="navbar__item"><a class="navbar__link" href="">Page1</a></li>
-            <li class="navbar__item"><a class="navbar__link" href="">Page2</a></li>
-            <li class="navbar__item"><a class="navbar__link" href="">Page3</a></li>
-            <li class="navbar__item"><a class="navbar__link" href="">Page4</a></li>
+            <li class="navbar__item"><a class="navbar__link active" href="">Главная</a>
+            </li>
+            <li class="navbar__item"><a class="navbar__link" href="">Статус платежа</a>
+            </li>
+            <li class="navbar__item"><a class="navbar__link" href="">Ответы на вопросы</a>
+            </li>
+            <li class="navbar__item"><a class="navbar__link" href="">Поддержка</a>
+            </li>
+            <li class="navbar__item"><a class="navbar__link" href="">Контакты</a>
+            </li>
           </ul>
         </nav>
+        <div class="header__action">
+          <div class="header__user"><a class="btn" href="#"><i class="icon icon_key"> </i>Регистрация</a><a class="btn" href="#"> <i class="icon icon_user"> </i>Войти</a></div>
+          <div class="header__lang">
+            <div class="dropdown">
+              <button class="btn dropdown__toggle" type="button"><img src="img/RUS.svg" alt=""/>Rus</button>
+              <div class="dropdown__drop">
+                <ul class="dropdown__list">
+                  <li><a href="#"><img src="img/eng.svg" alt=""/>Eng</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
     <main class="main_content">
-      <div class="container_center">
-        <div class="grid">
-          <div class="grid__item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, in.</div>
-          <div class="grid__item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo numquam sequi officiis. Quia sed modi voluptatem, aut rem possimus at ipsa nobis iure non corporis nulla suscipit praesentium quos numquam quasi magni delectus eius illo, harum hic id! Laboriosam culpa recusandae nesciunt ab natus molestiae porro reiciendis, eveniet architecto temporibus!</div>
-          <div class="grid__item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt fugiat, pariatur, explicabo ut quidem deleniti velit sed error dolor! Voluptates dignissimos consectetur repudiandae ipsam. Iusto, rerum, quam! Corporis, nisi, inventore?</div>
+      <div class="steps">
+        <div class="steps__item active" id="step_select_currency">
+          <div class="steps__icon"><i class="icon icon_wallet"></i></div>Выбор валюты 
+        </div>
+        <div class="steps__item" id="step_select_data">
+          <div class="steps__icon"><i class="icon icon_list"></i></div>Данные
+        </div>
+        <div class="steps__item" id="step_select_payment_type">
+          <div class="steps__icon"><i class="icon icon_order"></i></div>Оплата
         </div>
       </div>
+      <div class="main__wrapp">
+        <!-- begin main__left-->
+        <div class="main__left">
+          <div class="box__title">Калькулятор</div>
+          <div class="selected">
+            <div class="selected__empty">Выберите 2 варианта валюты для начала обмена</div>
+            <div class="selected__list">
+              <div class="selected__in"></div>
+              <div class="selected__out"></div>
+            </div>
+            <div class="selected__bottom">
+              <div class="selectedCours">
+                <div class="selectedCours__left">
+                  <div class="selectedCours__label">Курс:</div>
+                  <div class="selectedCours__calc">1 : 200000001</div>
+                </div>
+                <div class="selectedCours__timer"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end main__left-->
+        <!-- begin main__center-->
+        <div class="main__center">
+          <div class="stepsContent__wrapp">
+            <!-- begin stepFirst-->
+            <div class="stepsContent stepFirst">
+              <div class="stepFirst__left">
+                <div class="box__title">
+                  <div class="box__name"><i class="icon icon_out"> </i><span>Отдаете</span></div>
+                </div>
+                <div class="stepFirst__list">
+                  <div class="stepFirst__item" data-item-in="data-item-in" data-id="in-0" data-cours="1" data-icon="img/bitcon.png" data-name="Examplename" data-value="Btc">
+                    <div class="stepFirst__info">
+                      <div class="stepFirst__icon"><img src="img/bitcon.png" alt=""/></div>
+                      <div class="stepFirst__name">Examplename</div>
+                    </div>
+                  </div>
+                  <div class="stepFirst__item" data-item-in="data-item-in" data-id="in-1" data-cours="1" data-icon="img/bitconh2.png" data-name="Examplename" data-value="Btc">
+                    <div class="stepFirst__info">
+                      <div class="stepFirst__icon"><img src="img/bitconh2.png" alt=""/></div>
+                      <div class="stepFirst__name">Examplename</div>
+                    </div>
+                  </div>
+                  <div class="stepFirst__item" data-item-in="data-item-in" data-id="in-2" data-cours="1" data-icon="img/master-cart.png" data-name="Master Cart" data-value="Руб">
+                    <div class="stepFirst__info">
+                      <div class="stepFirst__icon"><img src="img/master-cart.png" alt=""/></div>
+                      <div class="stepFirst__name">Master Cart</div>
+                    </div>
+                  </div>
+                  <div class="stepFirst__item" data-item-in="data-item-in" data-id="in-3" data-cours="1" data-icon="img/qiwi.png" data-name="Qiwi" data-value="Руб">
+                    <div class="stepFirst__info">
+                      <div class="stepFirst__icon"><img src="img/qiwi.png" alt=""/></div>
+                      <div class="stepFirst__name">Qiwi</div>
+                    </div>
+                  </div>
+                  <div class="stepFirst__item" data-item-in="data-item-in" data-id="in-4" data-cours="1" data-icon="img/tele2.png" data-name="Examplename" data-value="Руб">
+                    <div class="stepFirst__info">
+                      <div class="stepFirst__icon"><img src="img/tele2.png" alt=""/></div>
+                      <div class="stepFirst__name">Examplename</div>
+                    </div>
+                  </div>
+                  <div class="stepFirst__item" data-item-in="data-item-in" data-id="in-5" data-cours="1" data-icon="img/visa.png" data-name="Visa" data-value="Руб">
+                    <div class="stepFirst__info">
+                      <div class="stepFirst__icon"><img src="img/visa.png" alt=""/></div>
+                      <div class="stepFirst__name">Visa</div>
+                    </div>
+                  </div>
+                  <div class="stepFirst__item" data-item-in="data-item-in" data-id="in-6" data-cours="1" data-icon="img/wallet.png" data-name="Examplename" data-value="Btc">
+                    <div class="stepFirst__info">
+                      <div class="stepFirst__icon"><img src="img/wallet.png" alt=""/></div>
+                      <div class="stepFirst__name">Examplename</div>
+                    </div>
+                  </div>
+                  <div class="stepFirst__item" data-item-in="data-item-in" data-id="in-7" data-cours="1" data-icon="img/yandex-wallet.png" data-name="Яндекс Деньги" data-value="Руб">
+                    <div class="stepFirst__info">
+                      <div class="stepFirst__icon"><img src="img/yandex-wallet.png" alt=""/></div>
+                      <div class="stepFirst__name">Яндекс Деньги</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="stepFirst__right">
+                <div class="box__title">
+                  <div class="box__name"><i class="icon icon_in"> </i><span>Получаете</span></div>
+                  <div class="box__props">
+                    <div class="box__cours">Курс</div>
+                    <div class="box__reserve">Резерв</div>
+                  </div>
+                </div>
+                <div class="stepFirst__list">
+                  <div class="stepFirst__item" data-item-out="data-item-out" data-id="out-0" data-cours="200000001" data-icon="img/qiwi.png" data-name="Examplename" data-value="Руб" data-reserv="10000" data-timer="30">
+                    <div class="stepFirst__info">
+                      <div class="stepFirst__icon"><img src="img/qiwi.png" alt=""/></div>
+                      <div class="stepFirst__name">Examplename</div>
+                    </div>
+                    <div class="stepFirst__props">
+                      <div class="stepFirst__cours">200000001</div>
+                      <div class="stepFirst__reserve">10000</div>
+                    </div>
+                  </div>
+                  <div class="stepFirst__item" data-item-out="data-item-out" data-id="out-1" data-cours="200000002" data-icon="img/qiwi.png" data-name="Examplename" data-value="Руб" data-reserv="954" data-timer="60">
+                    <div class="stepFirst__info">
+                      <div class="stepFirst__icon"><img src="img/qiwi.png" alt=""/></div>
+                      <div class="stepFirst__name">Examplename</div>
+                    </div>
+                    <div class="stepFirst__props">
+                      <div class="stepFirst__cours">200000002</div>
+                      <div class="stepFirst__reserve">954</div>
+                    </div>
+                  </div>
+                  <div class="stepFirst__item" data-item-out="data-item-out" data-id="out-2" data-cours="20000001" data-icon="img/qiwi.png" data-name="Examplename" data-value="Руб" data-reserv="500" data-timer="25">
+                    <div class="stepFirst__info">
+                      <div class="stepFirst__icon"><img src="img/qiwi.png" alt=""/></div>
+                      <div class="stepFirst__name">Examplename</div>
+                    </div>
+                    <div class="stepFirst__props">
+                      <div class="stepFirst__cours">20000001</div>
+                      <div class="stepFirst__reserve">500</div>
+                    </div>
+                  </div>
+                  <div class="stepFirst__item" data-item-out="data-item-out" data-id="out-3" data-cours="200000003" data-icon="img/qiwi.png" data-name="Examplename" data-value="Руб" data-reserv="90" data-timer="45">
+                    <div class="stepFirst__info">
+                      <div class="stepFirst__icon"><img src="img/qiwi.png" alt=""/></div>
+                      <div class="stepFirst__name">Examplename</div>
+                    </div>
+                    <div class="stepFirst__props">
+                      <div class="stepFirst__cours">200000003</div>
+                      <div class="stepFirst__reserve">90</div>
+                    </div>
+                  </div>
+                  <div class="stepFirst__item" data-item-out="data-item-out" data-id="out-4" data-cours="200000001" data-icon="img/qiwi.png" data-name="Examplename" data-value="Руб" data-reserv="1568" data-timer="30">
+                    <div class="stepFirst__info">
+                      <div class="stepFirst__icon"><img src="img/qiwi.png" alt=""/></div>
+                      <div class="stepFirst__name">Examplename</div>
+                    </div>
+                    <div class="stepFirst__props">
+                      <div class="stepFirst__cours">200000001</div>
+                      <div class="stepFirst__reserve">1568</div>
+                    </div>
+                  </div>
+                  <div class="stepFirst__item" data-item-out="data-item-out" data-id="out-5" data-cours="200000001" data-icon="img/qiwi.png" data-name="Examplename" data-value="Руб" data-reserv="2000" data-timer="30">
+                    <div class="stepFirst__info">
+                      <div class="stepFirst__icon"><img src="img/qiwi.png" alt=""/></div>
+                      <div class="stepFirst__name">Examplename</div>
+                    </div>
+                    <div class="stepFirst__props">
+                      <div class="stepFirst__cours">200000001</div>
+                      <div class="stepFirst__reserve">2000</div>
+                    </div>
+                  </div>
+                  <div class="stepFirst__item" data-item-out="data-item-out" data-id="out-6" data-cours="200000001" data-icon="img/qiwi.png" data-name="Examplename" data-value="Руб" data-reserv="50000" data-timer="35">
+                    <div class="stepFirst__info">
+                      <div class="stepFirst__icon"><img src="img/qiwi.png" alt=""/></div>
+                      <div class="stepFirst__name">Examplename</div>
+                    </div>
+                    <div class="stepFirst__props">
+                      <div class="stepFirst__cours">200000001</div>
+                      <div class="stepFirst__reserve">50000</div>
+                    </div>
+                  </div>
+                  <div class="stepFirst__item" data-item-out="data-item-out" data-id="out-7" data-cours="200000001" data-icon="img/qiwi.png" data-name="Examplename" data-value="Руб" data-reserv="150" data-timer="300">
+                    <div class="stepFirst__info">
+                      <div class="stepFirst__icon"><img src="img/qiwi.png" alt=""/></div>
+                      <div class="stepFirst__name">Examplename</div>
+                    </div>
+                    <div class="stepFirst__props">
+                      <div class="stepFirst__cours">200000001</div>
+                      <div class="stepFirst__reserve">150</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- begin stepsUpdate-->
+              <div class="stepsUpdate">
+                <div class="stepsUpdate__icon"><i class="icon icon_spinn"></i></div>
+              </div>
+              <!-- end stepsUpdate-->
+            </div>
+            <!-- end stepFirst-->
+            <!-- begin stepSecond-->
+            <div class="stepsContent stepSecond hide">
+              <div class="stepSecond__content">
+                <div class="form__edit">
+                  <div class="icon icon_back"></div>
+                </div>
+                <div class="box__title">
+                  <div class="box__name">Обмен QIWI на Bitcoin</div>
+                  <div class="stepSecond__cours"></div>
+                </div>
+                <form class="form">
+                  <div class="form__line">
+                    <div class="form__row form__in">
+                      <div class="form__icon"><img src="img/qiwi.png" alt="alt"/></div>
+                      <div class="form__control">
+                        <input type="tel" placeholder="" id="qiwi" required="required"/>
+                        <label class="form__label" for="qiwi">Номер QIWI кошелька</label>
+                      </div>
+                      <div class="form__props">
+                        <dl>
+                          <dt>Минимум:</dt>
+                          <dd>2000 Руб</dd>
+                        </dl>
+                        <dl>
+                          <dt>Максимум:</dt>
+                          <dd>1 000 000 Руб</dd>
+                        </dl>
+                      </div>
+                    </div>
+                    <div class="form__row">
+                      <div class="form__icon"></div>
+                      <div class="form__control">
+                        <input type="number" placeholder="" id="qiwi-summ" required="required"/>
+                        <label class="form__label" for="qiwi-summ">Сумма</label>
+                        <div class="form__info">Руб</div>
+                      </div>
+                      <div class="form__props"></div>
+                    </div>
+                  </div>
+                  <div class="form__line">
+                    <div class="form__row form__out">
+                      <div class="form__icon"><img src="img/bitcon.png" alt="alt"/></div>
+                      <div class="form__control">
+                        <input type="text" placeholder="" id="bit" required="required"/>
+                        <label class="form__label" for="bit">Адрес Bitcoin кошелька</label>
+                        <div class="form__info"><i class="icon icon_quest tooltip" title=" Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i></div>
+                      </div>
+                      <div class="form__props">
+                        <dl>
+                          <dt>Минимум:</dt>
+                          <dd>0,000043 Btc</dd>
+                        </dl>
+                        <dl>
+                          <dt>Максимум:</dt>
+                          <dd>0,0083020 Btc</dd>
+                        </dl>
+                      </div>
+                    </div>
+                    <div class="form__row">
+                      <div class="form__icon"></div>
+                      <div class="form__control">
+                        <input type="number" placeholder="" id="bit-summ" required="required"/>
+                        <label class="form__label" for="bit-summ">Сумма</label>
+                        <div class="form__info">Btc</div>
+                      </div>
+                      <div class="form__props">
+                        <label class="form__check">
+                          <input type="checkbox" checked="checked"/>Зафиксировать <i class="icon icon_quest tooltip" title=" Lorem ipsum dolor sit amet, consectetur adipisicing elit."></i>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__line">
+                    <div class="form__row form__user">
+                      <div class="form__icon"></div>
+                      <div class="form__control">
+                        <input type="tel" placeholder="" id="phone"/>
+                        <label class="form__label" for="phone">Номер телефона</label>
+                      </div>
+                      <div class="form__props"></div>
+                    </div>
+                    <div class="form__row">
+                      <div class="form__icon"></div>
+                      <div class="form__control">
+                        <input type="email" placeholder="" id="email"/>
+                        <label class="form__label" for="email">Email</label>
+                      </div>
+                      <div class="form__props">
+                        <label class="form__check">
+                          <input type="checkbox"/>Запомнить меня
+                        </label>
+                      </div>
+                    </div>
+                    <div class="form__privacy">Нажимая кнопнку Продолжить <br/>вы соглашаетесь с <a href="#">правилами и условиями </a>использования сервиса</div>
+                    <div class="stepLast__code">
+                      <div class="stepLast__codeLabel">Мы отправили вам код в смс на номер:</div>
+                      <div class="stepLast__codePhone">+7 913 184 58 41</div>
+                      <div class="stepLast__codeField">
+                        <input class="js_codeField" type="text" placeholder="Введите код"/>
+                      </div>
+                      <div class="stepLast__codeUpdate"><i class="icon icon_spinn"> </i>Отправить повторно через: <span class="js_codeCount">54</span></div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- end stepSecond-->
+          </div>
+        </div>
+        <!-- end main__center-->
+        <!-- begin main__aside-->
+        <aside class="main__aside">
+          <nav class="header__nav">
+            <ul class="navbar">
+              <li class="navbar__item"><a class="navbar__link active" href="">Главная</a>
+              </li>
+              <li class="navbar__item"><a class="navbar__link" href="">Статус платежа</a>
+              </li>
+              <li class="navbar__item"><a class="navbar__link" href="">Ответы на вопросы</a>
+              </li>
+              <li class="navbar__item"><a class="navbar__link" href="">Поддержка</a>
+              </li>
+              <li class="navbar__item"><a class="navbar__link" href="">Контакты</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="footer__nav">
+            <ul>
+              <li><a href="#">Тарифы</a></li>
+              <li><a href="#">Правила и условия</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+      <!-- end main__aside-->
+      <!-- begin stepsNext-->
+      <div class="stepsNext">
+        <button class="btn js_goToNext" type="button">Продолжить</button>
+      </div>
+      <!-- end stepsNext-->
     </main>
     <footer class="footer">
-      <div class="container_center">
-        <p></p>&copy; 2016 |<i class="fa fa-github" aria-hidden="true">&nbsp;</i><a href="#">View Source</a>
+      <div class="footer__content">
+        <div class="footer__copy">ExampleName 2020. Все права защищены</div>
+        <div class="footer__nav">
+          <ul>
+            <li><a href="#">Тарифы</a></li>
+            <li><a href="#">Правила и условия</a></li>
+          </ul>
+        </div>
       </div>
     </footer>
     <script src="js/jquery.js"></script>
-    <script src="js/function.js?0.1"></script>
+    <script src="js/app.js?0.9"></script>
   </body>
 </html>

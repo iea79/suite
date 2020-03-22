@@ -1,10 +1,23 @@
 header.header
     .header__content
-        .header__left
-            a.logo(href="/")
-                img(src="img/logo.png", alt="alt")
-        nav.header__right
-            ul.navbar
-                each navLink in [{name: 'Page1', href: ''},{name: 'Page2', href: ''},{name: 'Page3', href: ''},{name: 'Page4', href: ''},]
-                    li.navbar__item
-                        a.navbar__link(href= navLink.href)= navLink.name
+        include navbar.pug
+
+        .header__action
+            .header__user
+                a.btn(href="#")
+                    i.icon.icon_key 
+                    |Регистрация
+                a.btn(href="#") 
+                    i.icon.icon_user 
+                    |Войти
+            .header__lang
+                .dropdown
+                    button.btn.dropdown__toggle(type="button")
+                        img(src="img/RUS.svg", alt="")
+                        |Rus
+                    .dropdown__drop
+                        ul.dropdown__list
+                            li
+                                a(href="#")
+                                    img(src="img/eng.svg", alt="")
+                                    |Eng

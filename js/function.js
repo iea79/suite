@@ -6,6 +6,11 @@
  *
  */
 
+ // @prepros-append '../node_modules/jquery-circle-progress/dist/circle-progress.min.js';
+ // @prepros-append '../node_modules/tooltipster/dist/js/tooltipster.bundle.js';
+ // @prepros-append '../node_modules/inputmask/dist/jquery.inputmask.min.js';
+ // @prepros-append 'changer.js';
+
 var app = {
     pageScroll: '',
     lgWidth: 1200,
@@ -36,10 +41,15 @@ $(document).ready(function() {
 	});
 
     // Inputmask.js
-    // $('[name=tel]').inputmask("+9(999)999 99 99",{ showMaskOnHover: false });
+    $('[type=tel]').inputmask("+9 999-999-99-99",{ showMaskOnHover: false });
     // formSubmit();
 
     checkOnResize();
+
+    $('.tooltip').tooltipster({
+        // trigger: 'click'
+        trigger: 'hover'
+    });
 
 });
 
@@ -56,71 +66,91 @@ function checkOnResize() {
     // fontResize();
 }
 
-// Stiky menu // Липкое меню. При прокрутке к элементу #header добавляется класс .stiky который и стилизуем
-function stikyMenu() {
-    let HeaderTop = $('header').offset().top + $('.home').innerHeight();
-    let currentTop = $(window).scrollTop();
+function dropdown() {
+    $('.dropdown__toggle').on('click tap', function(e) {
+        $(this).closest('.dropdown').toggleClass('open');
+    })
+    hideAfterCliacOutOfElement('.dropdown__toggle');
+}
+dropdown();
 
-    setNavbarPosition();
 
-    $(window).scroll(function(){
-        setNavbarPosition();
-    });
-
-    function setNavbarPosition() {
-        currentTop = $(window).scrollTop();
-
-        if( currentTop > HeaderTop ) {
-            $('header').addClass('stiky');
-        } else {
-            $('header').removeClass('stiky');
+function hideAfterCliacOutOfElement(selector) {
+    $(document).mouseup(function (e){ // событие клика по веб-документу
+        var elem = $(selector); // тут указываем ID элемента
+        if (!elem.is(e.target) // если клик был не по нашему блоку
+        && elem.has(e.target).length === 0) { // и не по его дочерним элементам
+            elem.closest('.open').removeClass('open'); // скрываем его
         }
-
-        $('.navbar__link').each(function(index, el) {
-            let section = $(this).attr('href');
-
-            if ($('section').is(section)) {
-                let offset = $(section).offset().top;
-
-                if (offset <= currentTop && offset + $(section).innerHeight() > currentTop) {
-                    $(this).addClass('active');
-                } else {
-                    $(this).removeClass('active');
-                }
-            }
-        });
-    }
-};
-
-function openMobileNav() {
-    $('.navbar__toggle').on('click', function() {
-        var wrapp = $('.nav');
-
-        wrapp.toggleClass('open');
     });
-};
-openMobileNav();
+}
+
+
+// Stiky menu // Липкое меню. При прокрутке к элементу #header добавляется класс .stiky который и стилизуем
+// function stikyMenu() {
+//     let HeaderTop = $('header').offset().top + $('.home').innerHeight();
+//     let currentTop = $(window).scrollTop();
+//
+//     setNavbarPosition();
+//
+//     $(window).scroll(function(){
+//         setNavbarPosition();
+//     });
+//
+//     function setNavbarPosition() {
+//         currentTop = $(window).scrollTop();
+//
+//         if( currentTop > HeaderTop ) {
+//             $('header').addClass('stiky');
+//         } else {
+//             $('header').removeClass('stiky');
+//         }
+//
+//         $('.navbar__link').each(function(index, el) {
+//             let section = $(this).attr('href');
+//
+//             if ($('section').is(section)) {
+//                 let offset = $(section).offset().top;
+//
+//                 if (offset <= currentTop && offset + $(section).innerHeight() > currentTop) {
+//                     $(this).addClass('active');
+//                 } else {
+//                     $(this).removeClass('active');
+//                 }
+//             }
+//         });
+//     }
+// };
+//
+// function openMobileNav() {
+//     $('.navbar__toggle').on('click', function() {
+//         var wrapp = $('.nav');
+//
+//         wrapp.toggleClass('open');
+//     });
+// };
+// openMobileNav();
 
 // Scroll to ID // Плавный скролл к элементу при нажатии на ссылку. В ссылке указываем ID элемента
-function srollToId() {
-    $('[data-scroll-to]').click( function(){
-        var scroll_el = $(this).attr('href');
-        if ($(scroll_el).length != 0) {
-            $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
-        }
-        return false;
-    });
-}
+// function srollToId() {
+//     $('[data-scroll-to]').click( function(){
+//         var scroll_el = $(this).attr('href');
+//         if ($(scroll_el).length != 0) {
+//             $('html, body').animate({ scrollTop: $(scroll_el).offset().top }, 500);
+//         }
+//         return false;
+//     });
+// }
 
-function fontResize() {
-    var windowWidth = $(window).width();
-    if (windowWidth >= 1200) {
-    	var fontSize = windowWidth/19.05;
-    } else if (windowWidth < 1200) {
-    	var fontSize = 60;
-    }
-	$('body').css('fontSize', fontSize + '%');
-}
+// function fontResize() {
+//     var windowWidth = $(window).width();
+//     if (windowWidth >= 1200) {
+//     	var fontSize = windowWidth/19.05;
+//     } else if (windowWidth < 1200) {
+//     	var fontSize = 60;
+//     }
+// 	$('body').css('fontSize', fontSize + '%');
+// }
 
 // Проверка направления прокрутки вверх/вниз
 function checkDirectionScroll() {
@@ -141,38 +171,38 @@ function checkDirectionScroll() {
 checkDirectionScroll();
 
 // Видео youtube для страницы
-function uploadYoutubeVideo() {
-    if ($(".js-youtube")) {
-
-        $(".js-youtube").each(function () {
-            // Зная идентификатор видео на YouTube, легко можно найти его миниатюру
-            $(this).css('background-image', 'url(http://i.ytimg.com/vi/' + this.id + '/sddefault.jpg)');
-
-            // Добавляем иконку Play поверх миниатюры, чтобы было похоже на видеоплеер
-            $(this).append($('<img src="img/play.svg" alt="Play" class="video__play">'));
-
-        });
-
-        $('.video__play, .video__prev').on('click', function () {
-            // создаем iframe со включенной опцией autoplay
-            let wrapp = $(this).closest('.js-youtube'),
-                videoId = wrapp.attr('id'),
-                iframe_url = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&autohide=1";
-
-            if ($(this).data('params')) iframe_url += '&' + $(this).data('params');
-
-            // Высота и ширина iframe должны быть такими же, как и у родительского блока
-            let iframe = $('<iframe/>', {
-                'frameborder': '0',
-                'src': iframe_url,
-            })
-
-            // Заменяем миниатюру HTML5 плеером с YouTube
-            $(this).closest('.video__wrapper').append(iframe);
-
-        });
-    }
-};
+// function uploadYoutubeVideo() {
+//     if ($(".js-youtube")) {
+//
+//         $(".js-youtube").each(function () {
+//             // Зная идентификатор видео на YouTube, легко можно найти его миниатюру
+//             $(this).css('background-image', 'url(http://i.ytimg.com/vi/' + this.id + '/sddefault.jpg)');
+//
+//             // Добавляем иконку Play поверх миниатюры, чтобы было похоже на видеоплеер
+//             $(this).append($('<img src="img/play.svg" alt="Play" class="video__play">'));
+//
+//         });
+//
+//         $('.video__play, .video__prev').on('click', function () {
+//             // создаем iframe со включенной опцией autoplay
+//             let wrapp = $(this).closest('.js-youtube'),
+//                 videoId = wrapp.attr('id'),
+//                 iframe_url = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&autohide=1";
+//
+//             if ($(this).data('params')) iframe_url += '&' + $(this).data('params');
+//
+//             // Высота и ширина iframe должны быть такими же, как и у родительского блока
+//             let iframe = $('<iframe/>', {
+//                 'frameborder': '0',
+//                 'src': iframe_url,
+//             })
+//
+//             // Заменяем миниатюру HTML5 плеером с YouTube
+//             $(this).closest('.video__wrapper').append(iframe);
+//
+//         });
+//     }
+// };
 
 
 // Деление чисел на разряды Например из строки 10000 получаем 10 000

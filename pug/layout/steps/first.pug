@@ -1,0 +1,46 @@
+// begin stepFirst
+.stepsContent.stepFirst
+    .stepFirst__left
+        .box__title
+            .box__name
+                i.icon.icon_out 
+                span Отдаете
+
+        .stepFirst__list
+            -var inner = [{name: 'Examplename', icon: 'img/bitcon.png', value: 'Btc', cours: '1'}, {name: 'Examplename', icon: 'img/bitconh2.png', value: 'Btc', cours: '1'}, {name: 'Master Cart', icon: 'img/master-cart.png', value: 'Руб', cours: '1'}, {name: 'Qiwi', icon: 'img/qiwi.png', value: 'Руб', cours: '1'}, {name: 'Examplename', icon: 'img/tele2.png', value: 'Руб', cours: '1'}, {name: 'Visa', icon: 'img/visa.png', value: 'Руб', cours: '1'}, {name: 'Examplename', icon: 'img/wallet.png', value: 'Btc', cours: '1'}, {name: 'Яндекс Деньги', icon: 'img/yandex-wallet.png', value: 'Руб', cours: '1'}]
+            each item, i in inner
+                .stepFirst__item(data-item-in data-id="in-"+i+"" data-cours= item.cours data-icon= item.icon data-name= item.name data-value= item.value)
+                    .stepFirst__info
+                        .stepFirst__icon
+                            img(src= item.icon alt="")
+                        .stepFirst__name= item.name
+
+    .stepFirst__right
+        .box__title
+            .box__name
+                i.icon.icon_in 
+                span Получаете
+            .box__props
+                .box__cours Курс
+                .box__reserve Резерв
+
+        .stepFirst__list
+            -var outer = [{name: 'Examplename', icon: 'img/qiwi.png', value: 'Руб', reserv: '10000', cours: '200000001', time: '30'}, {name: 'Examplename', icon: 'img/qiwi.png', value: 'Руб', reserv: '954', cours: '200000002', time: '60'}, {name: 'Examplename', icon: 'img/qiwi.png', value: 'Руб', reserv: '500', cours: '20000001', time: '25'}, {name: 'Examplename', icon: 'img/qiwi.png', value: 'Руб', reserv: '90', cours: '200000003', time: '45'}, {name: 'Examplename', icon: 'img/qiwi.png', value: 'Руб', reserv: '1568', cours: '200000001', time: '30'}, {name: 'Examplename', icon: 'img/qiwi.png', value: 'Руб', reserv: '2000', cours: '200000001', time: '30'}, {name: 'Examplename', icon: 'img/qiwi.png', value: 'Руб', reserv: '50000', cours: '200000001', time: '35'}, {name: 'Examplename', icon: 'img/qiwi.png', value: 'Руб', reserv: '150', cours: '200000001', time: '300'}]
+            each item, i in outer
+                .stepFirst__item(data-item-out data-id="out-"+i+"" data-cours= item.cours data-icon= item.icon data-name= item.name data-value= item.value data-reserv= item.reserv data-timer= item.time)
+                    .stepFirst__info
+                        .stepFirst__icon
+                            img(src= item.icon alt="")
+                        .stepFirst__name= item.name
+                    .stepFirst__props
+                        .stepFirst__cours= item.cours
+                        .stepFirst__reserve= item.reserv
+
+    // begin stepsUpdate
+    .stepsUpdate
+        .stepsUpdate__icon
+            i.icon.icon_spinn
+
+    // end stepsUpdate
+
+// end stepFirst

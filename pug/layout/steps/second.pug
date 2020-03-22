@@ -1,0 +1,98 @@
+// begin stepSecond
+.stepsContent.stepSecond.hide
+    .stepSecond__content
+        .form__edit
+            .icon.icon_back
+        .box__title
+            .box__name Обмен QIWI на Bitcoin
+            .stepSecond__cours
+
+        form.form
+            .form__line
+                .form__row.form__in
+                    .form__icon
+                        img(src="img/qiwi.png", alt="alt")
+                    .form__control
+                        input(type="tel" placeholder="" id="qiwi" required)
+                        label(for="qiwi").form__label Номер QIWI кошелька
+                    .form__props
+                        dl
+                            dt Минимум:
+                            dd 2000 Руб
+                        dl
+                            dt Максимум:
+                            dd 1 000 000 Руб
+                .form__row
+                    .form__icon
+                    .form__control
+                        input(type="number" placeholder="" id="qiwi-summ" required)
+                        label(for="qiwi-summ").form__label Сумма
+                        .form__info
+                            |Руб
+                    .form__props
+
+            .form__line
+                .form__row.form__out
+                    .form__icon
+                        img(src="img/bitcon.png", alt="alt")
+                    .form__control
+                        input(type="text" placeholder="" id="bit" required)
+                        label.form__label(for="bit") Адрес Bitcoin кошелька
+                        .form__info
+                            i.icon.icon_quest.tooltip(title=" Lorem ipsum dolor sit amet, consectetur adipisicing elit.")
+                    .form__props
+                        dl
+                            dt Минимум:
+                            dd 0,000043 Btc
+                        dl
+                            dt Максимум:
+                            dd 0,0083020 Btc
+                .form__row
+                    .form__icon
+                    .form__control
+                        input(type="number" placeholder="" id="bit-summ" required)
+                        label.form__label(for="bit-summ") Сумма
+                        .form__info
+                            |Btc
+                    .form__props
+                        label.form__check
+                            input(type="checkbox" checked) 
+                            |Зафиксировать 
+                            i.icon.icon_quest.tooltip(title=" Lorem ipsum dolor sit amet, consectetur adipisicing elit.")
+
+            .form__line
+                .form__row.form__user
+                    .form__icon
+                    .form__control
+                        input(type="tel" placeholder="" id="phone")
+                        label.form__label(for="phone") Номер телефона
+                    .form__props
+
+                .form__row
+                    .form__icon
+                    .form__control
+                        input(type="email" placeholder="" id="email")
+                        label.form__label(for="email") Email
+                    .form__props
+                        label.form__check
+                            input(type="checkbox") 
+                            |Запомнить меня
+
+                .form__privacy Нажимая кнопнку Продолжить 
+                    br
+                    |вы соглашаетесь с 
+                    a(href="#") правилами и условиями 
+                    |использования сервиса
+
+                .stepLast__code
+                    .stepLast__codeLabel Мы отправили вам код в смс на номер:
+                    .stepLast__codePhone +7 913 184 58 41
+                    .stepLast__codeField
+                        input.js_codeField(type="text", placeholder="Введите код")
+                    .stepLast__codeUpdate
+                        i.icon.icon_spinn 
+                        |Отправить повторно через: 
+                        span.js_codeCount 54
+
+
+// end stepSecond

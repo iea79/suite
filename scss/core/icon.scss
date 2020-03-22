@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'icons';
+    src: url("../fonts/icons.ttf?xon1h") format('truetype'), url("../fonts/icons.woff?xon1h") format('woff'), url("../fonts/icons.svg?xon1h#icons") format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon_"],
+[class*=" icon_"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon_quest:before {
+    content: "\e900";
+}
+
+.icon_in:before {
+    content: "\e901";
+}
+
+.icon_key:before {
+    content: "\e902";
+}
+
+.icon_list:before {
+    content: "\e903";
+}
+
+.icon_order:before {
+    content: "\e904";
+}
+
+.icon_out:before {
+    content: "\e905";
+}
+
+.icon_spinn:before {
+    content: "\e906";
+}
+
+.icon_user:before {
+    content: "\e907";
+}
+
+.icon_wallet:before {
+    content: "\e908";
+}

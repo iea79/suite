@@ -3,23 +3,24 @@
 body {
 	display: flex;
 	flex-direction: column;
-	font-size: calc(.034 * 100vw + 0px);
+	font-size: calc(.00838 * 100vw + 0px);
+	// font-size: calc(.034 * 100vw + 0px);
 	height: auto;
 	// color: $color_withe;
 
 	// background-color: #101010;
 
-	@media (min-width: 768px) {
-		font-size: calc(.012 * 100vw + 0px);
-	}
-
-	@media (min-width: 1400px) {
-		font-size: calc(.00838 * 100vw + 0px);
-	}
-
-	@media (min-width: 1600px) {
-		font-size: calc(.00838 * 100vw + 0px);
-	}
+	// @media (min-width: 768px) {
+	// 	font-size: calc(.012 * 100vw + 0px);
+	// }
+	//
+	// @media (min-width: 1400px) {
+	// 	font-size: calc(.00838 * 100vw + 0px);
+	// }
+	//
+	// @media (min-width: 1600px) {
+	// 	font-size: calc(.00838 * 100vw + 0px);
+	// }
 
 }
 
